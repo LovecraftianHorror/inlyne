@@ -217,9 +217,11 @@ impl Image {
                         src,
                         src_path.display()
                     );
-                    let image =
-                        ImageData::load(include_bytes!("../../assets/img/broken.png"), false)
-                            .unwrap();
+                    let image = ImageData::load(
+                        &include_bytes!("../../assets/img/broken.png").to_owned(),
+                        false,
+                    )
+                    .unwrap();
                     *image_data_clone.lock().unwrap() = Some(image);
                     image_callback.loaded_image(src, image_data_clone);
                     return;
