@@ -217,6 +217,7 @@ impl Image {
                         src,
                         src_path.display()
                     );
+                    #[allow(clippy::unnecessary_to_owned)]
                     let image = ImageData::load(
                         &include_bytes!("../../assets/img/broken.png").to_owned(),
                         false,
